@@ -3,12 +3,14 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import TweetList from "./components/TweetList/TweetList";
 import Profile from "./components/Profile/Profile";
+import DiscoverBar from "./components/DiscoverBar/DiscoverBar";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
+          <Route path="/discoverbar" component={DiscoverBar} />
           <Route path="/tweetlist" component={TweetList} />
           <Route path="/profile" component={Profile} />
           {/* <Route path="/" component={Home} />
