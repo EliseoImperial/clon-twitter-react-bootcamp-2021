@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import TweetList from "./components/TweetList/TweetList";
 import Profile from "./components/Profile/Profile";
-import DiscoverBar from "./components/DiscoverBar/DiscoverBar";
+import DiscoverBar from "./components/layouts/DiscoverBar";
 
 function App() {
   return (
