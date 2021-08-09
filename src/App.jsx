@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TweetList from "./components/TweetList";
+import TweetList from "./components/TweetList/TweetList";
 import Profile from "./components/Profile/Profile";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
+          <Route path="/tweetlist" component={TweetList} />
           <Route path="/profile" component={Profile} />
           {/* <Route path="/" component={Home} />
           <Route path="/perfil" component={Perfil} />
