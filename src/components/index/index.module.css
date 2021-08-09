@@ -1,0 +1,42 @@
+/* Index */
+.generalContainer {
+  height: calc(100vh - 50px);
+}
+.tituloIndex {
+  line-height: 84px;
+  letter-spacing: -1.2px;
+  font-size: 64px;
+  font-family: Verdana, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-style: inherit;
+}
+.h2Index {
+  font-weight: 800;
+}
+
+.imgBackgroundIndex {
+  background-image: url(./fondo_twitter.png);
+  background-position: center;
+  border: 1px solid transparent;
+}
+
+.btnRegister {
+  width: 300px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  min-height: 48px;
+}
+
+/* Iconos para el index, login, registro */
+.iconoTwitterIndex {
+  max-width: 60px;
+}
+
+.btnLogin {
+  width: 300px;
+  text-align: center;
+  border: 1px solid #0d6efd;
+  border-radius: 9999px;
+  min-height: 48px;
+}

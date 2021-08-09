@@ -4,9 +4,9 @@ const TweetBox = () => {
   return (
     <div>
       <div id="home-content">
-        <div className="row">
+        <div className={`row ${styles.homeContent}`}>
           <div className="col-2 d-flex align-items-start">
-            <div id="profile-picture">
+            <div id="profile-picture" className={styles.profilePicture}>
               <img
                 className="rounded-circle w-100"
                 src="/img/profile-2.png"
