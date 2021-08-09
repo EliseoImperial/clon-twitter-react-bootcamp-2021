@@ -1,0 +1,30 @@
+.cabecera-perfil {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.img-background-perfil {
+  background-color: #d3d3d3;
+  width: 100%;
+}
+.img-perfil {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
+  margin-left: 20px;
+  margin-top: 140px;
+}
+.name-user {
+  color: rgb(179, 175, 175);
+}
+.perfil-info {
+  border: 1px solid lightgray;
+}
+
+.btn-perfil {
+  border: 0px;
+  color: black;
+  font-weight: bold;
+  max-width: 100%;
+}
