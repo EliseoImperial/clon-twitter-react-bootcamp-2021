@@ -1,13 +1,13 @@
-.cabecera-perfil {
+.cabeceraPerfil {
   background-color: #ffffff;
   border: 1px solid transparent;
 }
 
-.img-background-perfil {
+.imgBackgroundPerfil {
   background-color: #d3d3d3;
   width: 100%;
 }
-.img-perfil {
+.imgPerfil {
   border: 2px solid #ffffff;
   border-radius: 50%;
   height: 8rem;
@@ -18,11 +18,11 @@
 .name-user {
   color: rgb(179, 175, 175);
 }
-.perfil-info {
+.perfilInfo {
   border: 1px solid lightgray;
 }
 
-.btn-perfil {
+.btnPerfil {
   border: 0px;
   color: black;
   font-weight: bold;
