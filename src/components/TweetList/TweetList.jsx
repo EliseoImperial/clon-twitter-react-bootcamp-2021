@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import tweetStyles from "./TweetList.module.css";
 
 function TweetList() {
@@ -13,17 +12,17 @@ function TweetList() {
                 id="img-logo"
                 className="rounded-circle w-100"
                 src="<%=tweet.user.profilePicture%>"
-                alt="profile picture"
+                alt="fotito"
               />
             </div>
           </div>
           <div className="col-10">
             <div className="d-flex flex-column">
               <div id="name-username" className="mb-0">
-                <h5 className="d-inline me-1 mb-0 me-2"></h5>
-                <span className="me-4"></span>
+                <h5 className="d-inline me-1 mb-0 me-2">Nombre Apellido</h5>
+                <span className="me-4"> @username</span>
               </div>
-              <p></p>
+              <p>contenido del tweet</p>
 
               <div>
                 <div className="card w-100">
@@ -41,29 +40,27 @@ function TweetList() {
                       make up the bulk of the card's content.
                     </p>
                     <span>
-                      <a href="">
+                      <a href="...">
                         <i className="fas fa-link me-1"></i>linkAun.com
                       </a>
                     </span>
                   </div>
                 </div>
                 <div className="btn-actions d-flex justify-content-between mt-3">
-                  <a href="#" className={tweetStyles.btnLinkHome}>
+                  <a href="..." className={tweetStyles.btnLinkHome}>
                     <i className="far fa-comment"></i>
                     22
                   </a>
-                  <a href="#" className={tweetStyles.btnLinkHome}>
+                  <a href="..." className={tweetStyles.btnLinkHome}>
                     <i className="fas fa-retweet"></i> 3
                   </a>
-                  <a
-                    href="/like/<%=tweet.id%>"
-                    className={tweetStyles.btnLinkHome}
-                  ></a>
-                  <a href="#" className="btn-link-home">
+                  <a href="...tweet.id" className={tweetStyles.btnLinkHome}>
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-heart text-danger"></i>{" "}
+                  </a>
+                  <a href="..." className="btn-link-home">
                     <i className="fas fa-share-square"></i> 6
                   </a>
-                  <i class="far fa-heart"></i>
-                  <i class="fas fa-heart text-danger"></i>
                 </div>
               </div>
               <hr />

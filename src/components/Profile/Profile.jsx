@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import profileStyles from "./ProfileStyles.module.css";
 
 function Profile() {
@@ -50,22 +49,34 @@ function Profile() {
         </div>
         <div className="d-flex justify-content-around">
           <div className="">
-            <a className={`btn btn-outline-primary ${profileStyles.btnPerfil}`} href="">
+            <a
+              className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
+              href=""
+            >
               Tweets
             </a>
           </div>
           <div className="">
-            <a className={`btn btn-outline-primary ${profileStyles.btnPerfil}`} href="">
+            <a
+              className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
+              href=""
+            >
               Tweets y respuestas
             </a>
           </div>
           <div className="">
-            <a className={`btn btn-outline-primary ${profileStyles.btnPerfil}`} href="">
+            <a
+              className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
+              href=""
+            >
               Fotos y videos
             </a>
           </div>
           <div className="">
-            <a className={`btn btn-outline-primary ${profileStyles.btnPerfil}`} href="">
+            <a
+              className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
+              href=""
+            >
               Me gusta
             </a>
           </div>
