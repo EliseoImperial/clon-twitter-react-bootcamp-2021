@@ -23,7 +23,7 @@ const Logout = () => {
           height="32"
           className="rounded-circle me-2"
         />
-        <strong>NOMBRE Y APELLIDO DE USER</strong>
+        <strong>Logout</strong>
       </Link>
       <ul
         className="dropdown-menu text-small shadow"
