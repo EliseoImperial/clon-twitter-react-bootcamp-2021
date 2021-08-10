@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import tweetStyles from "./TweetList.module.css";
+import axios from "axios";
 
 function TweetList() {
+  const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    async function getTweets() {
+      const response = await axios({
+        method: "get",
+        url: "http://localhost:3100/api/home",
+      });
+      console.log(response.data);
+      setTweets(response.data.results);
+    }
+    getTweets();
+    console.log(tweets);
+  }, [tweets]);
+
   return (
     <div>
       <div id="homeDivider"></div>
