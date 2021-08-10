@@ -4,7 +4,7 @@ import loginStyles from "../login/login.module.css";
 const Login = () => {
   return (
     <div>
-      <div className={`${loginStyles.containerTotalLogin}text-center`}>
+      <div className={`${loginStyles.containerTotalLogin} text-center`}>
         <img
           className={loginStyles.iconoTwitterIndex}
           src="../img/logo.png"
@@ -49,7 +49,7 @@ const Login = () => {
           <button className="btn btn-primary mt-2 mb-2 rounded-lg w-100">
             Iniciar sesión
           </button>
-          <div className={`${loginStyles.colorLetter}pt-4 pb-1 text-center`}>
+          <div className={`${loginStyles.colorLetter} pt-4 pb-1 text-center`}>
             <p>
               Olvidaste tu contraseña?
               <Link to="/"> Regístrate en Twitter</Link>
