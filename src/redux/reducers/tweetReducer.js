@@ -1,4 +1,4 @@
-const tweetReducer = (state, action) => {
+const tweetReducer = (state = [], action) => {
   switch (action.type) {
     case "SHOW_TWEETS":
       return state;

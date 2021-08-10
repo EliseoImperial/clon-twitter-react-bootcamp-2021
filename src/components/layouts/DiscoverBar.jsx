@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import discoverStyles from "./DiscoverBar.modules.css";
 
 function DiscoverBar() {
