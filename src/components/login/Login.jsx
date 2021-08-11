@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import loginStyles from "../login/login.module.css";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  function loginUser(ev) {
+    console.log("estado en front: ", username);
+    ev.preventDefault();
+    axios({
+      method: "post",
+      URL: "http://localhost:3100/login",
+      data: { username, password },
+    });
+    history.push("/home");
+  }
   return (
     <div>
       <div className={`${loginStyles.containerTotalLogin} text-center`}>
@@ -18,8 +35,8 @@ const Login = () => {
       <div
         className={`${loginStyles.loginFormContainer} container mt-3 shadow rounded`}
       >
-        <form action="/login" method="POST">
-          <div class="mb-3">
+        <form method="post" onSubmit={(ev) => loginUser(ev)}>
+          <div className="mb-3">
             <label htmlFor="username" className="form-label mt-3">
               Username
             </label>
@@ -30,6 +47,8 @@ const Login = () => {
               name="username"
               required
               placeholder="Ingrese username..."
+              value={username}
+              onChange={(ev) => setUsername(ev.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -43,6 +62,8 @@ const Login = () => {
               name="password"
               required
               placeholder="Ingrese contraseña"
+              value={password}
+              onChange={(ev) => setPassword(ev.target.value)}
             />
           </div>
 

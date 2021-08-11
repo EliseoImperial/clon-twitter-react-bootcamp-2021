@@ -1,5 +1,5 @@
 import registerStyles from "../register/register.module.css";
-import { useEffect } from "react";
+
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
