@@ -18,7 +18,7 @@ const Register = () => {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3100/registro",
+      url: "http://localhost:3100/user",
       headers: { "Content-Type": "application/json" },
       data: { firstname, lastname, email, username, password },
     });
