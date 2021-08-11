@@ -13,13 +13,16 @@ const Register = () => {
 
   const history = useHistory();
 
-  function registerUser(ev) {
+  async function registerUser(ev) {
     ev.preventDefault();
-    axios({
-      method: "post",
-      URL: "http://localhost:3100/registro",
+
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3100/registro",
+      headers: { "Content-Type": "application/json" },
       data: { firstname, lastname, email, username, password },
     });
+    console.log(response);
     history.push("/home");
   }
 
@@ -33,7 +36,7 @@ const Register = () => {
         mt-5
         mx-auto`}
       >
-        <form className="p-4" method="post" onSubmit={(ev) => registerUser(ev)}>
+        <form className="p-4" onSubmit={(ev) => registerUser(ev)}>
           <img
             className={registerStyles.iconoTwitterIndex}
             src="../img/logo.png"
