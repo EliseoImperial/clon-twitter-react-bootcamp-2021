@@ -1,6 +1,28 @@
 import registerStyles from "../register/register.module.css";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const history = useHistory();
+
+  function registerUser(ev) {
+    ev.preventDefault();
+    axios({
+      method: "post",
+      URL: "http://localhost:3100/registro",
+      data: { firstname, lastname, email, username, password },
+    });
+    history.push("/home");
+  }
+
   return (
     <div className="container">
       <div
@@ -11,7 +33,7 @@ const Register = () => {
         mt-5
         mx-auto`}
       >
-        <form action="/registro" method="POST" className="p-4">
+        <form className="p-4" method="post" onSubmit={(ev) => registerUser(ev)}>
           <img
             className={registerStyles.iconoTwitterIndex}
             src="../img/logo.png"
@@ -26,6 +48,8 @@ const Register = () => {
             type="text"
             name="firstname"
             id="firstname"
+            value={firstname}
+            onChange={(ev) => setFirstname(ev.target.value)}
             required
           />
           <label className="form-label mt-2 mb-1" htmlFor="lastname">
@@ -36,6 +60,8 @@ const Register = () => {
             type="text"
             name="lastname"
             id="lastname"
+            value={lastname}
+            onChange={(ev) => setLastname(ev.target.value)}
             required
           />
           <label className="form-label mt-2 mb-1" htmlFor="email">
@@ -46,6 +72,8 @@ const Register = () => {
             type="email"
             name="email"
             id="email"
+            value={email}
+            onChange={(ev) => setEmail(ev.target.value)}
             required
           />
           <label className="form-label mt-2 mb-1" htmlFor="username">
@@ -56,6 +84,8 @@ const Register = () => {
             type="username"
             name="username"
             id="username"
+            value={username}
+            onChange={(ev) => setUsername(ev.target.value)}
             required
           />
           <label className="form-label mt-2 mb-1" htmlFor="password">
@@ -66,6 +96,8 @@ const Register = () => {
             type="password"
             name="password"
             id="password"
+            value={password}
+            onChange={(ev) => setPassword(ev.target.value)}
             required
           />
           <button
