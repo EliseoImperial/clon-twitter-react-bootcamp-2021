@@ -1,4 +1,5 @@
 import discoverStyles from "./DiscoverBar.modules.css";
+import { Link } from "react-router-dom";
 
 function DiscoverBar() {
   return (
@@ -9,7 +10,7 @@ function DiscoverBar() {
         </h5>
 
         <div className="list-group">
-          <a href="#" className="list-group-item list-group-item-action">
+          <Link href="#" className="list-group-item list-group-item-action">
             <div className="d-flex justify-content-between w-100">
               <div className={discoverStyles.profilePicture}>
                 <img
@@ -31,8 +32,8 @@ function DiscoverBar() {
                 </button>
               </div>
             </div>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
+          </Link>
+          <Link href="#" className="list-group-item list-group-item-action">
             <div className="d-flex justify-content-between w-100">
               <div className={discoverStyles.profilePicture}>
                 <img
@@ -54,8 +55,8 @@ function DiscoverBar() {
                 </button>
               </div>
             </div>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
+          </Link>
+          <Link href="#" className="list-group-item list-group-item-action">
             <div className="d-flex justify-content-between w-100">
               <div className={discoverStyles.profilePicture}>
                 <img
@@ -77,7 +78,7 @@ function DiscoverBar() {
                 </button>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
