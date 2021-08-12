@@ -3,6 +3,7 @@ import registerStyles from "../register/register.module.css";
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [firstname, setFirstname] = useState("");
@@ -10,18 +11,22 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const history = useHistory();
 
   async function registerUser(ev) {
     ev.preventDefault();
-    const response = await axios({
+    const { data } = await axios({
       method: "post",
       url: "http://localhost:3100/user",
       headers: { "Content-Type": "application/json" },
       data: { firstname, lastname, email, username, password },
     });
-
+    dispatch({
+      type: "LOGIN",
+      payload: data,
+    });
     history.push("/home");
   }
 

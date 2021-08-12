@@ -22,8 +22,6 @@ const Login = () => {
       type: "LOGIN",
       payload: data,
     });
-    // console.log(data);
-
     history.push("/home");
   }
   return (

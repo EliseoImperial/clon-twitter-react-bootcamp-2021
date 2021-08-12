@@ -1,16 +1,19 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Logout = () => {
+  const data = useSelector((state) => state);
+  // console.log(data.firstname);
   return (
-    <div className="dropdown">
+    <div>
       <Link
-        to="#"
+        to="/logout"
         className="
             d-flex
             align-items-center
             link-dark
             text-decoration-none
-            dropdown-toggle
+           
           "
         id="dropdownUser2"
         data-bs-toggle="dropdown"
@@ -23,26 +26,9 @@ const Logout = () => {
           height="32"
           className="rounded-circle me-2"
         />
-        <strong>Logout</strong>
+        <strong>{data.username}</strong>
+        <p className="fs-6 disabled"> Logout</p>
       </Link>
-      <ul
-        className="dropdown-menu text-small shadow"
-        aria-labelledby="dropdownUser2"
-      >
-        <li>
-          <Link className="dropdown-item" to="#">
-            Profile
-          </Link>
-        </li>
-        <li>
-          <hr className="dropdown-divider" />
-        </li>
-        <li>
-          <Link className="dropdown-item" to="/logout">
-            Logout
-          </Link>
-        </li>
-      </ul>
     </div>
   );
 };

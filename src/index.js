@@ -10,7 +10,6 @@ import { Provider } from "react-redux";
 
 //CREACIÓN DE STORE
 const store = createStore(
-  // tweetReducer,
   userReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
