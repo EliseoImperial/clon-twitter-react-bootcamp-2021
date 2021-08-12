@@ -1,6 +1,23 @@
 import stylesTweetBox from "./TweetBox.module.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const TweetBox = () => {
+  const [newTweet, setNewTweet] = useState("");
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state);
+  async function createTweet(ev) {
+    ev.preventDefault();
+    const { data } = await axios({
+      method: "post",
+      url: "http://localhost:3100/newTweet",
+      headers: { "Content-Type": "application/json" },
+      data: { content: newTweet, user: userData._id },
+    });
+  }
+  console.log(newTweet);
+  console.log(userData);
   return (
     <div>
       <div id={stylesTweetBox.homeContent}>
@@ -24,7 +41,9 @@ const TweetBox = () => {
                     type="text"
                     name="content"
                     id="content"
+                    value={newTweet}
                     placeholder="¿Qué está pasando?"
+                    onChange={(ev) => setNewTweet(ev.target.value)}
                   />
                 </div>
 
@@ -80,6 +99,7 @@ const TweetBox = () => {
                   <button
                     className={`btn rounded-pill ${stylesTweetBox.btnTwitter}`}
                     type="submit"
+                    onClick={(ev) => createTweet(ev)}
                   >
                     Twittear
                   </button>
