@@ -1,5 +1,6 @@
 import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
+import { Link } from "react-router-dom";
 
 const Tweet = ({ item }) => {
   return (
@@ -7,12 +8,14 @@ const Tweet = ({ item }) => {
       <div className="row">
         <div className="col-2 d-flex align-items-start">
           <div id="profile-picture">
-            <img
+            {" "}
+            foto
+            {/* <img
               id="img-logo"
               className="rounded-circle w-100"
               src={item.user.profilePicture}
               alt="fotito"
-            />
+            /> */}
           </div>
         </div>
         <div className="col-10">
@@ -21,8 +24,12 @@ const Tweet = ({ item }) => {
               id="name-username"
               className="pt-2 mb-0 d-flex align-items-center"
             >
-              <h5 className="d-inline me-3 mb-0">{item.user.firstname}</h5>
-              <span className=" me-3 mb-0">@{item.user.username}</span>
+              <Link to="/perfil/:id">
+                <h5 className="d-inline me-3 mb-0">
+                  {item && item.user.firstname}
+                </h5>
+                <span className=" me-3 mb-0">@{item.user.username}</span>
+              </Link>
               <p className="disabled fs-6 me-1 mb-0">
                 {moment(item.createdAt).format("LL")}
               </p>

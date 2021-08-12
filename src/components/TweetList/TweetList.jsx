@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Tweet from "../Tweet/Tweet";
 
-function TweetList() {
+function TweetList({ trigger }) {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function TweetList() {
       setTweets(response.data);
     }
     getTweets();
-  }, []);
+  }, [trigger]);
 
   return (
     <div>

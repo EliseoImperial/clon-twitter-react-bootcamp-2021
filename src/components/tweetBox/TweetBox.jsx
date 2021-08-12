@@ -1,20 +1,25 @@
 import stylesTweetBox from "./TweetBox.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
-const TweetBox = () => {
+const TweetBox = ({ setTrigger }) => {
   const [newTweet, setNewTweet] = useState("");
-  const dispatch = useDispatch();
+
+  // const dispatch = useDispatch();
   const userData = useSelector((state) => state);
+
   async function createTweet(ev) {
     ev.preventDefault();
     const { data } = await axios({
       method: "post",
       url: "http://localhost:3100/newTweet",
       headers: { "Content-Type": "application/json" },
-      data: { content: newTweet, user: userData._id },
+      data: { content: newTweet, user: userData.id },
     });
+    if (data) {
+      setTrigger(3);
+    }
   }
   console.log(newTweet);
   console.log(userData);
@@ -59,35 +64,35 @@ const TweetBox = () => {
                 <hr className="mt-3" />
                 <div className="d-flex justify-content-between">
                   <div>
-                    <a href="#" className="me-3">
+                    <a href="..." className="me-3">
                       <img
                         className={stylesTweetBox.iconsTweet}
                         src="/img/pict-icon.svg"
-                        alt="photo"
+                        alt="..."
                       />
                     </a>
-                    <a href="#" className="me-3">
+                    <a href="..." className="me-3">
                       <img
                         className={stylesTweetBox.iconsTweet}
                         src="/img/gif-icon.svg"
                         alt="gif"
                       />
                     </a>
-                    <a href="#" className="me-3">
+                    <a href="..." className="me-3">
                       <img
                         className={stylesTweetBox.iconsTweet}
                         src="/img/static-icon.svg"
                         alt="survey"
                       />
                     </a>
-                    <a href="#" className="me-3">
+                    <a href="..." className="me-3">
                       <img
                         className={stylesTweetBox.iconsTweet}
                         src="/img/smile-icon.svg"
                         alt="emoji"
                       />
                     </a>
-                    <a href="#" className="me-3">
+                    <a href="..." className="me-3">
                       <img
                         className={stylesTweetBox.iconsTweet}
                         src="/img/schedule-icon.svg"

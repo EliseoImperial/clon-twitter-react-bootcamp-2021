@@ -1,6 +1,21 @@
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 import profileStyles from "./ProfileStyles.module.css";
+import axios from "axios";
 
 function Profile() {
+  // const { username } = useParams();
+  // const [user, setUser] = useState();
+
+  // async function getUser() {
+  //   const { user } = await axios({
+  //     method: "post",
+  //     url: `http://localhost:3100/${username}`,
+  //   });
+
+  // history.push("/home");
+  // }
+
   return (
     <div>
       <div
@@ -9,7 +24,7 @@ function Profile() {
         <a href="/home">
           <i className="fas fa-arrow-left ms-0"></i>
         </a>
-        <h3 className="ms-3"></h3>
+        <h3 className="ms-3"> algo falta </h3>
       </div>
       <div
         className={`${profileStyles.imgBackgroundPerfil} d-flex align-items-center`}
@@ -25,7 +40,7 @@ function Profile() {
       <div className={profileStyles.perfilInfo}>
         <div className="row g-0">
           <div className="col-md-6">
-            <h3 className="mt-2 ms-3"></h3>
+            <h3 className="mt-2 ms-3"> por aca tambien </h3>
             <p className="disabled name-user ms-3"></p>
             <p className="name-user ms-3"></p>
           </div>
@@ -51,7 +66,7 @@ function Profile() {
           <div className="">
             <a
               className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
-              href=""
+              href="..."
             >
               Tweets
             </a>
@@ -59,7 +74,7 @@ function Profile() {
           <div className="">
             <a
               className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
-              href=""
+              href="..."
             >
               Tweets y respuestas
             </a>
@@ -67,7 +82,7 @@ function Profile() {
           <div className="">
             <a
               className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
-              href=""
+              href="..."
             >
               Fotos y videos
             </a>
@@ -75,7 +90,7 @@ function Profile() {
           <div className="">
             <a
               className={`btn btn-outline-primary ${profileStyles.btnPerfil}`}
-              href=""
+              href="..."
             >
               Me gusta
             </a>
