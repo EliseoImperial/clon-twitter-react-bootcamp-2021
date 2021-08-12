@@ -4,14 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
-import tweetReducer from "./redux/reducers/tweetReducer.js";
+// import tweetReducer from "./redux/reducers/tweetReducer.js";
+import userReducer from "./redux/reducers/userReducer.js";
 import { Provider } from "react-redux";
 
 //CREACIÓN DE STORE
 const store = createStore(
-  tweetReducer,
-  [],
-  window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION()
+  // tweetReducer,
+  userReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

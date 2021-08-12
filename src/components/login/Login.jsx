@@ -11,9 +11,9 @@ const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  function loginUser(ev) {
+  async function loginUser(ev) {
     ev.preventDefault();
-    const { data } = axios({
+    const { data } = await axios({
       method: "post",
       url: "http://localhost:3100/login",
       data: { username, password },
@@ -22,7 +22,7 @@ const Login = () => {
       type: "LOGIN",
       payload: data,
     });
-    console.log(data);
+    // console.log(data);
 
     history.push("/home");
   }
