@@ -15,9 +15,8 @@ const Register = () => {
 
   async function registerUser(ev) {
     ev.preventDefault();
-
     const response = await axios({
-      method: "POST",
+      method: "post",
       url: "http://localhost:3100/user",
       headers: { "Content-Type": "application/json" },
       data: { firstname, lastname, email, username, password },
