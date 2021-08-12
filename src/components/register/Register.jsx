@@ -21,7 +21,7 @@ const Register = () => {
       headers: { "Content-Type": "application/json" },
       data: { firstname, lastname, email, username, password },
     });
-    console.log(response);
+
     history.push("/home");
   }
 

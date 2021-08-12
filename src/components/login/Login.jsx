@@ -3,20 +3,27 @@ import { useState } from "react";
 import loginStyles from "../login/login.module.css";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   function loginUser(ev) {
-    console.log("estado en front: ", username);
     ev.preventDefault();
-    axios({
+    const { data } = axios({
       method: "post",
-      URL: "http://localhost:3100/login",
+      url: "http://localhost:3100/login",
       data: { username, password },
     });
+    dispatch({
+      type: "LOGIN",
+      payload: data,
+    });
+    console.log(data);
+
     history.push("/home");
   }
   return (

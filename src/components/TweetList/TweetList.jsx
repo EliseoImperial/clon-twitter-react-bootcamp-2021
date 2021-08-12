@@ -16,7 +16,6 @@ function TweetList() {
     getTweets();
   }, []);
 
-  console.log("Lista de Tweet", tweets);
   return (
     <div>
       <div id="tweets-content">
