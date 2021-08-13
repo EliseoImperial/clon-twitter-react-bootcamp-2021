@@ -4,10 +4,25 @@ import Tweetbox from "./tweetBox/TweetBox";
 import TweetList from "./TweetList/TweetList";
 import DiscoverBar from "./layouts/DiscoverBar";
 import stylesTweetBox from "../components/tweetBox/TweetBox.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = () => {
-  const [trigger, setTrigger] = useState(1);
+  const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    async function getTweets() {
+      const response = await axios({
+        method: "get",
+        url: "http://localhost:3100/api/home",
+      });
+
+      setTweets(response.data);
+    }
+    getTweets();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -17,9 +32,9 @@ const Home = () => {
             <Logout />
           </div>
           <div className="col-md-6 col-xs-7">
-            <Tweetbox setTrigger={setTrigger} trigger={trigger} />
+            <Tweetbox tweets={tweets} setTweets={setTweets} />
             <div className={stylesTweetBox.homeDivider}></div>
-            <TweetList trigger={trigger} />
+            <TweetList tweets={tweets} />
           </div>
           <div class="col-md-3 col-xs-3">
             <DiscoverBar />

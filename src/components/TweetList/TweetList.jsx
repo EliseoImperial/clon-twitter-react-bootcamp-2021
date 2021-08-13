@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Tweet from "../Tweet/Tweet";
+import { useEffect } from "react";
 
-function TweetList({ trigger }) {
-  const [tweets, setTweets] = useState([]);
-
+function TweetList({ tweets }) {
   useEffect(() => {
-    async function getTweets() {
-      const response = await axios({
-        method: "get",
-        url: "http://localhost:3100/api/home",
-      });
-      setTweets(response.data);
-    }
-    getTweets();
-  }, [trigger]);
+    console.log("component mounted");
+  }, []);
 
   return (
     <div>
