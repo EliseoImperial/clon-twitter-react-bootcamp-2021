@@ -7,7 +7,6 @@ import stylesTweetBox from "../components/tweetBox/TweetBox.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 const Home = () => {
   const [tweets, setTweets] = useState([]);
 
@@ -25,6 +24,8 @@ const Home = () => {
   }, []);
 
   return (
+    //si existe el token el la store, rendereá el home, sino registrate
+
     <>
       <div className="container">
         <div className="row">
