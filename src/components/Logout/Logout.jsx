@@ -10,7 +10,7 @@ const Logout = () => {
   return (
     <div>
       <Link
-        to="/perfil"
+        to="/perfil/:username"
         className="
             d-flex
             align-items-center
