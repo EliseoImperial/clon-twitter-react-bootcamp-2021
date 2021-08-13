@@ -5,6 +5,7 @@ import axios from "axios";
 
 const TweetBox = ({ tweets, setTweets }) => {
   const [newTweet, setNewTweet] = useState("");
+  const user = useSelector((state) => state.user);
 
   // const dispatch = useDispatch();
   const userData = useSelector((state) => state);
@@ -15,6 +16,9 @@ const TweetBox = ({ tweets, setTweets }) => {
       method: "post",
       url: "http://localhost:3100/newTweet",
       data: { content: newTweet, user: userData.id },
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const currentTweet = response.data;
     setTweets([currentTweet, ...tweets]);
@@ -46,7 +50,9 @@ const TweetBox = ({ tweets, setTweets }) => {
                     id="content"
                     value={newTweet}
                     placeholder="¿Qué está pasando?"
-                    onChange={(ev) => setNewTweet(ev.target.value)}
+                    onChange={(ev) => {
+                      setNewTweet(ev.target.value);
+                    }}
                   />
                 </div>
 
@@ -102,7 +108,10 @@ const TweetBox = ({ tweets, setTweets }) => {
                   <button
                     className={`btn rounded-pill ${stylesTweetBox.btnTwitter}`}
                     type="submit"
-                    onClick={(ev) => createTweet(ev)}
+                    onClick={(ev) => {
+                      createTweet(ev);
+                      setNewTweet("");
+                    }}
                   >
                     Twittear
                   </button>
