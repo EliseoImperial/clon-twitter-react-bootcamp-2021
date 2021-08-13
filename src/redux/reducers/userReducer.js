@@ -4,6 +4,9 @@ const userReducer = (state = null, action) => {
       console.log("desde dispatch", state, action.payload);
       return action.payload;
 
+    case "LOGOUT":
+      return (state = null);
+
     default:
       return state;
   }

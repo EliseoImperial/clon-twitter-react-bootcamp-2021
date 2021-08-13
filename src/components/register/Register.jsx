@@ -27,7 +27,7 @@ const Register = () => {
       type: "LOGIN",
       payload: data,
     });
-    history.push("/home");
+    history.push("/login");
   }
 
   return (

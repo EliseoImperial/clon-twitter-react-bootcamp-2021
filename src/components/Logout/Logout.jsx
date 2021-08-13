@@ -1,13 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const Logout = () => {
+  const history = useHistory();
   const data = useSelector((state) => state);
-  // console.log(data.firstname);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Link
-        to="/logout"
+        to="/perfil"
         className="
             d-flex
             align-items-center
@@ -27,8 +30,17 @@ const Logout = () => {
           className="rounded-circle me-2"
         />
         <strong>{data.username}</strong>
-        <p className="fs-6 disabled"> Logout</p>
       </Link>
+      <span
+        className="btn btn-outline "
+        onClick={() => {
+          dispatch({ type: "LOGOUT" });
+          history.push("/login");
+        }}
+      >
+        {" "}
+        Logout{" "}
+      </span>
     </div>
   );
 };
