@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import Logout from "../Logout/Logout";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    console.log("Sidebar");
+  }, [user]);
+  console.log(user.username);
+  
   return (
     <div>
       <span className="p-3 fs-6 fw-bold hover">
@@ -62,7 +71,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="list-group-item list-group-item-action border-0 p-3 fs-6 fw-bold hover">
-          <Link to="/perfil/:username" className={styles.aLineColor}>
+          <Link to={`/perfil/${user.username}`} className={styles.aLineColor}>
             <span>
               <i className="fas fa-user-alt"></i>
             </span>{" "}

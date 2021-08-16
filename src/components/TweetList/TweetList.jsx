@@ -1,7 +1,7 @@
 import Tweet from "../Tweet/Tweet";
 import { useEffect } from "react";
 
-function TweetList({ tweets }) {
+function TweetList({ tweets = [], user }) {
   useEffect(() => {
     console.log("component mounted");
   }, []);
@@ -10,7 +10,7 @@ function TweetList({ tweets }) {
     <div>
       <div id="tweets-content">
         {tweets.map((tweet) => (
-          <Tweet item={tweet} />
+          <Tweet item={tweet} user={user} />
         ))}
       </div>
     </div>

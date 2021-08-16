@@ -2,7 +2,7 @@ import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
 import { Link } from "react-router-dom";
 
-const Tweet = ({ item }) => {
+const Tweet = ({ item, user }) => {
   return (
     <div>
       <div className="row">
@@ -24,11 +24,9 @@ const Tweet = ({ item }) => {
               id="name-username"
               className="pt-2 mb-0 d-flex align-items-center"
             >
-              <Link to="/perfil/:id">
-                <h5 className="d-inline me-3 mb-0">
-                  {item && item.user.firstname}
-                </h5>
-                <span className=" me-3 mb-0">@{item.user.username}</span>
+              <Link to={`/perfil/${user.username}`}>
+                <h5 className="d-inline me-3 mb-0">{item && user.firstname}</h5>
+                <span className=" me-3 mb-0">@{user.username}</span>
               </Link>
               <p className="disabled fs-6 me-1 mb-0">
                 {moment(item.createdAt).format("LL")}
