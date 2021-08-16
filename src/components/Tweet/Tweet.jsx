@@ -1,15 +1,30 @@
 import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 //import { useEffect } from "react";
 //import { useSelector } from "react-redux";
 
 const Tweet = ({ item, user }) => {
-  // useEffect(() => {
-  //   console.log("component mounted");
-  // }, []);
+  console.log("Tweet: ", item);
+  const dispatch = useDispatch();
 
-  console.log(user);
+  async function deleteTweet() {
+    const response = await axios({
+      method: "delete",
+      url: `http://localhost:3100/tweet/${item.id}`,
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
+    dispatch({
+      type: "DELETE_TWEET",
+      payload: item.id,
+    });
+  }
+
   // const userData = useSelector((state) => state.user);
   return (
     <div>
@@ -46,13 +61,14 @@ const Tweet = ({ item, user }) => {
 
               <div>
                 {item.user.tokens && (
-                  <Link
+                  <button
                     to={`/tweet/${item._id}`}
                     id="btn-delete"
                     class="text-danger me-3"
+                    onClick={() => deleteTweet()}
                   >
                     <i class="far fa-trash-alt"></i>
-                  </Link>
+                  </button>
                 )}
               </div>
             </div>

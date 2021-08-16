@@ -6,6 +6,9 @@ const userReducer = (state = null, action) => {
     case "LOGOUT":
       return (state.token = []);
 
+    case "DELETE_TWEET":
+      return action.payload;
+
     default:
       return state;
   }
