@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Tweet = ({ item, user }) => {
-  // const userData = useSelector((state) => state.user);
+  console.log(" tweet", item);
+  console.log(" props user", user);
+
   return (
     <div>
       <div className="row">
@@ -40,11 +42,15 @@ const Tweet = ({ item, user }) => {
               </div>
 
               <div>
-                {/* {userData.token && ( */}
-                <a href="..." id="btn-delete" class="text-danger me-3">
-                  <i class="far fa-trash-alt"></i>
-                </a>
-                {/* )} */}
+                {user.token && (
+                  <Link
+                    to={`/tweet/${item._id}`}
+                    id="btn-delete"
+                    class="text-danger me-3"
+                  >
+                    <i class="far fa-trash-alt"></i>
+                  </Link>
+                )}
               </div>
             </div>
             <p className="pt-1">{item.content}</p>
