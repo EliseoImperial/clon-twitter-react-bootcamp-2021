@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/registro" component={Register} />
           <Route exact path="/perfil/:username" component={Profile} />
-          {user.token ? (
+          {user && user.token ? (
             <Route exact path="/home" component={Home} />
           ) : (
             <Redirect to="/login" />
