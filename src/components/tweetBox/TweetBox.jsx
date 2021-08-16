@@ -14,7 +14,7 @@ const TweetBox = ({ tweets, setTweets }) => {
     ev.preventDefault();
     const response = await axios({
       method: "post",
-      url: "http://localhost:3100/newTweet",
+      url: "http://localhost:3100/tweet",
       data: { content: newTweet },
       headers: {
         Authorization: `Bearer ${user.token}`,

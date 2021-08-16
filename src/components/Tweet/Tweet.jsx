@@ -1,8 +1,10 @@
 import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Tweet = ({ item, user }) => {
+  // const userData = useSelector((state) => state.user);
   return (
     <div>
       <div className="row">
@@ -21,19 +23,29 @@ const Tweet = ({ item, user }) => {
           <div className="d-flex flex-column">
             <div
               id="name-username"
-              className="pt-2 mb-0 d-flex align-items-center"
+              className="pt-2 mb-0 d-flex align-items-center justify-content-between"
             >
-              <Link to={`/perfil/${user.username}`}>
-                <h5 className={`${tweetStyles.subrayado} d-inline me-2 mb-0`}>
-                  {item && user.firstname}
-                </h5>
-                <span className={`${tweetStyles.subrayado} me-4 mb-0`}>
-                  @{user.username}
-                </span>
-              </Link>
-              <p className={`${tweetStyles.moment} disabled me-1 mb-0`}>
-                {moment(item.createdAt).format("LL")}
-              </p>
+              <div className="d-flex  align-items-center">
+                <Link to={`/perfil/${user.username}`}>
+                  <h5 className={`${tweetStyles.subrayado} d-inline me-2 mb-0`}>
+                    {item && user.firstname}
+                  </h5>
+                  <span className={`${tweetStyles.subrayado} me-4 mb-0`}>
+                    @{user.username}
+                  </span>
+                </Link>
+                <p className={`${tweetStyles.moment} disabled me-1 mb-0`}>
+                  {moment(item.createdAt).format("LL")}
+                </p>
+              </div>
+
+              <div>
+                {/* {userData.token && ( */}
+                <a href="..." id="btn-delete" class="text-danger me-3">
+                  <i class="far fa-trash-alt"></i>
+                </a>
+                {/* )} */}
+              </div>
             </div>
             <p className="pt-1">{item.content}</p>
 
