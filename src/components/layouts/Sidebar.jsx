@@ -7,11 +7,8 @@ import { useSelector } from "react-redux";
 const Sidebar = () => {
   const user = useSelector((state) => state.user);
 
-  useEffect(() => {
-    console.log("Sidebar");
-  }, [user]);
-  console.log(user.username);
-  
+  useEffect(() => {}, [user]);
+
   return (
     <div className="mt-5">
       <span className="p-3 fs-6 fw-bold hover">

@@ -1,22 +1,25 @@
 import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+//import { useEffect } from "react";
+//import { useSelector } from "react-redux";
 
 const Tweet = ({ item, user }) => {
-  console.log(" tweet", item);
-  console.log(" props user", user);
+  // useEffect(() => {
+  //   console.log("component mounted");
+  // }, []);
 
+  console.log(user);
+  // const userData = useSelector((state) => state.user);
   return (
     <div>
       <div className="row">
         <div className="col-2 d-flex align-items-start">
           <div id="profile-picture">
-            {" "}
             <img
               id="img-logo"
               className="rounded-circle w-100"
-              src={user.profilePicture}
+              src={item.user.profilePicture}
               alt="foto"
             />
           </div>
@@ -30,10 +33,10 @@ const Tweet = ({ item, user }) => {
               <div className="d-flex  align-items-center">
                 <Link to={`/perfil/${user.username}`}>
                   <h5 className={`${tweetStyles.subrayado} d-inline me-2 mb-0`}>
-                    {item && user.firstname}
+                    {item && item.user.firstname}
                   </h5>
                   <span className={`${tweetStyles.subrayado} me-4 mb-0`}>
-                    @{user.username}
+                    @{item.user.username}
                   </span>
                 </Link>
                 <p className={`${tweetStyles.moment} disabled me-1 mb-0`}>
@@ -42,7 +45,7 @@ const Tweet = ({ item, user }) => {
               </div>
 
               <div>
-                {user.token && (
+                {item.user.tokens && (
                   <Link
                     to={`/tweet/${item._id}`}
                     id="btn-delete"

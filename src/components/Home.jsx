@@ -20,7 +20,6 @@ const Home = () => {
       setTweets(response.data);
     }
     getTweets();
-    // eslint-disable-next-line
   }, []);
 
   return (
