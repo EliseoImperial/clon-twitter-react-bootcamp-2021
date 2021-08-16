@@ -1,11 +1,6 @@
-.btnTwitter {
-  background-color: #1da1f2;
-  color: whitesmoke;
-}
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .profilePicture {
@@ -17,3 +12,16 @@ hr {
   max-width: 50px;
   max-height: 50px;
 }
+.cartillaOpinion {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.cartillaOpinion img {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+

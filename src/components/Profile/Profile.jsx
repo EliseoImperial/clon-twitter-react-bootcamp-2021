@@ -49,7 +49,7 @@ function Profile() {
                 <div className="mb-4">
                   <img
                     className={`${profileStyles.imgPerfil}`}
-                    src="<%= userProfile.profilePicture %>"
+                    src="../img/profile-2.png"
                     alt="img de perfil"
                   />
                 </div>
@@ -57,27 +57,41 @@ function Profile() {
               <div className={profileStyles.perfilInfo}>
                 <div className="row g-0">
                   <div className="col-md-6">
-                    <h5 className="mt-2 ms-3">
+                    <h3 className="mt-2 ms-3 my-0">
                       {user.firstname} {user.lastname}
-                    </h5>
-                    <p className="disabled name-user ms-3">@ {user.username}</p>
-                    <p className="name-user ms-3"> Se unio el </p>
-                    <a
-                      href="/unfollow/<%= userProfile.id %>"
-                      className="btn btn-primary rounded-lg"
-                    >
+                    </h3>
+                    <p className={`${profileStyles.nameUser} ms-3 disabled `}>
+                      @ {user.username}
+                    </p>
+                    <p className={`${profileStyles.nameUser} ms-3 my-0`}>
+                      <i class="far fa-calendar-alt"></i> Se unió en mayo de
+                      2021{" "}
+                    </p>
+                    <div className="d-flex ">
+                      <a
+                        href=""
+                        className={`${profileStyles.seguidosSeguidosres} ms-3 mb-3`}
+                      >
+                        23 Siguiendo
+                      </a>
+                      <a
+                        href=""
+                        className={`${profileStyles.seguidosSeguidosres} ms-3 `}
+                      >
+                        23 Siguiendo
+                      </a>
+                    </div>
+
+                    <a href="..." className="btn btn-primary rounded-lg">
                       unfollow
                     </a>
 
-                    <a
-                      href="/follow/<%= userProfile.id %>"
-                      className="btn btn-primary rounded-lg"
-                    >
+                    <a href="..." className="btn btn-primary rounded-lg">
                       Follow
                     </a>
                   </div>
                   <div className="col-md-6 text-end pt-3 pe-3">
-                    <button className="btn btn-outline-primary">
+                    <button className="btn btn-outline-secondary rounded-pill">
                       Editar perfil
                     </button>
                   </div>

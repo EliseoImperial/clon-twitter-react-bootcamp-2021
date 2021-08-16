@@ -68,3 +68,13 @@ hr {
   border-top-right-radius: 20px;
   height: 25rem;
 }
+
+.subrayado {
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+.moment {
+  font-size: 12px;
+}

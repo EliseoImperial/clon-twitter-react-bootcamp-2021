@@ -15,7 +15,7 @@
   margin-left: 20px;
   margin-top: 140px;
 }
-.name-user {
+.nameUser {
   color: rgb(179, 175, 175);
 }
 .perfilInfo {
@@ -27,4 +27,8 @@
   color: black;
   font-weight: bold;
   max-width: 100%;
+}
+.seguidosSeguidosres {
+  text-decoration: none;
+  color: black;
 }

@@ -30,7 +30,7 @@ const TweetBox = ({ tweets, setTweets }) => {
   return (
     <div>
       <div id={stylesTweetBox.homeContent}>
-        <div className={`row ${stylesTweetBox.homeContent}`}>
+        <div className={`row ${stylesTweetBox.homeContent} mt-5`}>
           <div className="col-2 d-flex align-items-start">
             <div className={stylesTweetBox.profilePicture}>
               <img

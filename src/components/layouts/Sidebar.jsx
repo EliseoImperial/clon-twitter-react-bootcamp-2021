@@ -13,7 +13,7 @@ const Sidebar = () => {
   console.log(user.username);
   
   return (
-    <div>
+    <div className="mt-5">
       <span className="p-3 fs-6 fw-bold hover">
         <img
           className={styles.iconoTwitterSidebar}
