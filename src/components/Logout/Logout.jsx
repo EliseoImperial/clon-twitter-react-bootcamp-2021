@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 
 const Logout = () => {
   const history = useHistory();
-  const data = useSelector((state) => state);
+  const data = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   return (

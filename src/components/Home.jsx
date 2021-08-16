@@ -1,5 +1,5 @@
 import Sidebar from "./layouts/Sidebar";
-import Logout from "./Logout/Logout";
+
 import Tweetbox from "./tweetBox/TweetBox";
 import TweetList from "./TweetList/TweetList";
 import DiscoverBar from "./layouts/DiscoverBar";
@@ -31,7 +31,6 @@ const Home = () => {
         <div className="row">
           <div className="col-md-3 col-xs-2">
             <Sidebar />
-            <Logout />
           </div>
           <div className="col-md-6 col-xs-7">
             <Tweetbox tweets={tweets} setTweets={setTweets} />

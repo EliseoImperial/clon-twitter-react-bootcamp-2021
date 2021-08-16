@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
+import Logout from "../Logout/Logout";
 
 const Sidebar = () => {
   return (
@@ -76,6 +77,10 @@ const Sidebar = () => {
             Más opciones
           </Link>
         </li>
+        <li className=" list-group-item list-group-item-action border-0 p-3 fs-6 fw-bold hover">
+          <Logout />
+        </li>
+
         <div
           id="btn-plumita"
           className="

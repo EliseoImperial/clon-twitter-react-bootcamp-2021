@@ -6,6 +6,7 @@ import Sidebar from "../layouts/Sidebar";
 import Logout from "../Logout/Logout";
 import DiscoverBar from "../layouts/DiscoverBar";
 import { useSelector } from "react-redux";
+import TwitList from "../TweetList/TweetList";
 
 function Profile() {
   const userData = useSelector((state) => state);
@@ -20,6 +21,7 @@ function Profile() {
 
   // history.push("/home");
   // }
+
   console.log(userData);
 
   return (
@@ -27,7 +29,6 @@ function Profile() {
       <div className="row">
         <div className="col-md-3 col-xs-2">
           <Sidebar />
-          <Logout />
         </div>
         <div className="col-md-6 col-xs-2">
           <div
@@ -116,6 +117,7 @@ function Profile() {
               </div>
             </div>
           </div>
+          <TwitList />
         </div>
         <div class="col-md-3 col-xs-3">
           <DiscoverBar />

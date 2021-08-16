@@ -15,15 +15,17 @@ const TweetBox = ({ tweets, setTweets }) => {
     const response = await axios({
       method: "post",
       url: "http://localhost:3100/newTweet",
-      data: { content: newTweet, user: userData.id },
+      data: { content: newTweet },
       headers: {
         Authorization: `Bearer ${user.token}`,
       },
     });
+
     const currentTweet = response.data;
+    currentTweet.user = userData.user;
     setTweets([currentTweet, ...tweets]);
+    console.log(currentTweet);
   }
-  console.log(newTweet);
 
   return (
     <div>
@@ -41,7 +43,7 @@ const TweetBox = ({ tweets, setTweets }) => {
 
           <div className="col-10">
             <div className="d-flex flex-column">
-              <form action="/create" method="POST">
+              <form action="/tweet" method="POST">
                 <div id="tweet-input">
                   <input
                     className="form-control border-0 p-0 mb-3 mt-3"
