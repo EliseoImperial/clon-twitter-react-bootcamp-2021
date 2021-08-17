@@ -1,13 +1,13 @@
 import stylesTweetBox from "./TweetBox.module.css";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-const TweetBox = ({ tweets, setTweets }) => {
+const TweetBox = () => {
+  const dispatch = useDispatch();
   const [newTweet, setNewTweet] = useState("");
   const user = useSelector((state) => state.user);
 
-  // const dispatch = useDispatch();
   const userData = useSelector((state) => state);
 
   async function createTweet(ev) {
@@ -20,11 +20,14 @@ const TweetBox = ({ tweets, setTweets }) => {
         Authorization: `Bearer ${user.token}`,
       },
     });
-
     const currentTweet = response.data;
-    currentTweet.user = userData.user;
-    setTweets([currentTweet, ...tweets]);
     console.log(currentTweet);
+    currentTweet.user = userData.user;
+
+    dispatch({
+      type: "ADD_TWEET",
+      payload: currentTweet,
+    });
   }
 
   return (

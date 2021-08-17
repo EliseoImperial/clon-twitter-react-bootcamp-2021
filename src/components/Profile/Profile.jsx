@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+
 import profileStyles from "./ProfileStyles.module.css";
 import axios from "axios";
 import Sidebar from "../layouts/Sidebar";
-import Logout from "../Logout/Logout";
+
 import DiscoverBar from "../layouts/DiscoverBar";
 import TwitList from "../TweetList/TweetList";
 
@@ -13,15 +13,19 @@ function Profile() {
   const [user, setUser] = useState();
 
   useEffect(() => {
+    console.log("im here");
     async function getUser() {
       const response = await axios({
         method: "get",
         url: `http://localhost:3100/profile/${username}`,
       });
+
       setUser(response.data);
+      console.log(response.data);
     }
     getUser();
-  }, []);
+    // eslint-disable-next-line
+  }, [username]);
 
   return (
     <div className="container">
@@ -69,13 +73,13 @@ function Profile() {
                     </p>
                     <div className="d-flex ">
                       <a
-                        href=""
+                        href="..."
                         className={`${profileStyles.seguidosSeguidosres} ms-3 mb-3`}
                       >
                         23 Siguiendo
                       </a>
                       <a
-                        href=""
+                        href="..."
                         className={`${profileStyles.seguidosSeguidosres} ms-3 `}
                       >
                         23 Siguiendo
@@ -131,7 +135,7 @@ function Profile() {
                   </div>
                 </div>
               </div>
-              <TwitList tweets={user.tweets} user={user} />
+              <TwitList user={user} />
             </>
           )}
         </div>

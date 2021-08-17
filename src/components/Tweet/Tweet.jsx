@@ -2,20 +2,19 @@ import moment from "moment";
 import tweetStyles from "./Tweet.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-//import { useEffect } from "react";
-//import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Tweet = ({ item, user }) => {
-  console.log("Tweet: ", item);
+  const userLogged = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
 
   async function deleteTweet() {
-    const response = await axios({
+    await axios({
       method: "delete",
       url: `http://localhost:3100/tweet/${item.id}`,
       headers: {
-        Authorization: `Bearer ${user.token}`,
+        Authorization: `Bearer ${userLogged.token}`,
       },
     });
 
@@ -25,7 +24,6 @@ const Tweet = ({ item, user }) => {
     });
   }
 
-  // const userData = useSelector((state) => state.user);
   return (
     <div>
       <div className="row">
@@ -34,7 +32,7 @@ const Tweet = ({ item, user }) => {
             <img
               id="img-logo"
               className="rounded-circle w-100"
-              src={item.user.profilePicture}
+              src={user.profilePicture}
               alt="foto"
             />
           </div>
@@ -48,10 +46,10 @@ const Tweet = ({ item, user }) => {
               <div className="d-flex  align-items-center">
                 <Link to={`/perfil/${user.username}`}>
                   <h5 className={`${tweetStyles.subrayado} d-inline me-2 mb-0`}>
-                    {item && item.user.firstname}
+                    {item && user.firstname}
                   </h5>
                   <span className={`${tweetStyles.subrayado} me-4 mb-0`}>
-                    @{item.user.username}
+                    @{user.username}
                   </span>
                 </Link>
                 <p className={`${tweetStyles.moment} disabled me-1 mb-0`}>
@@ -60,11 +58,11 @@ const Tweet = ({ item, user }) => {
               </div>
 
               <div>
-                {item.user.tokens && (
+                {user.tokens && (
                   <button
                     to={`/tweet/${item._id}`}
                     id="btn-delete"
-                    class="text-danger me-3"
+                    class="text-danger me-3 btn btn-outline "
                     onClick={() => deleteTweet()}
                   >
                     <i class="far fa-trash-alt"></i>
